@@ -1,0 +1,368 @@
+$layout-width-inner: 1200px;
+
+$breakpoints:(
+  "sp":"screen and (max-width: 767px)",
+  "tab":"screen and(max-width: #{$layout-width-inner - 1px})",
+  // "screen and (min-width:768px)",
+  "pc":"screen and (min-width: #{$layout-width-inner})",
+);
+@mixin mq($breakpoint: sp) {
+
+  @media #{map-get($breakpoints,$breakpoint)}{
+
+    @content;
+  }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.Mizu{
+  background-color: rgb(17, 51, 245);
+}
+
+.GingerAle{
+  background-color: rgb(78, 240, 57);
+}
+
+.Coke{
+  background-color: rgb(255, 38, 0);
+}
+
+.Karupisu{
+  background-color: rgb(0, 255, 255);
+}
+
+.Coffee{
+  background-color: rgb(92, 11, 11);
+}
+
+.Information{
+  background-color: rgb(39, 39, 39);
+  width: 65%;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+  @include mq(){
+    width: 100%;
+  }
+  #zaiko{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  #text{
+    display: flex;
+    justify-content: flex-end;
+    #btn{
+      width: 50px;
+      height: 40px;
+      background-color: white;
+      border-radius: 10px;
+      outline: 0;
+      margin: 10px 30px 10px 20px;
+    }
+  }
+}
+
+.jihanki{
+  background-color: red;
+  width: 60%;
+  height: 950px;
+  margin: auto;
+  border-radius: 10px;
+  padding: 50px;
+  @include mq(tab){
+    width: 75%;
+  }
+  @include mq(){
+    width: 98%;
+    padding: 30px;
+  }
+  &__front-panel{
+    height: 450px;
+    background-color: silver;
+    border-radius: 10px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+    @include mq(){
+      padding: 10px 15px;
+    }
+    &__drink-display{
+      height: 100%;
+      background-color: white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 5px 20px;
+      @include mq(){
+        padding: 5px 10px;
+      }
+      &__drinks{
+        display: flex;
+        justify-content: space-between;
+        &__drink{
+          width: 80px;
+          height:150px;
+          border-radius: 5px;
+          margin: 8px 5px;
+          @include mq(){
+            margin: 5px 2px;
+          }
+        }
+      }
+      &__menu-bar{
+        background-color: silver;
+        height: 40px;
+        border-radius: 5px;
+        padding: 0 10px;
+        &__drink-prices{
+          background-color: dodgerblue;
+          padding: 0 12px;
+          height: 20px;
+          display: flex;
+          justify-content: space-between;
+          @include mq(){
+            padding: 0 5px;
+          }
+          &__price{
+            width: 50px;
+            height: 12px;
+            background-color: black;
+            border-radius: 5px;
+            padding-top: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &__moji{
+              font-size: 11px;
+              color: orangered;
+            }
+          }
+        }
+        &__drink-btns{
+          display: flex;
+          justify-content: space-between;
+          padding: 2px 12px;
+          @include mq(){
+            padding: 2px 5px;
+          }
+          &__btn{
+            width: 50px;
+            height: 15px;
+            border-radius: 45%;
+            background-color: grey;
+            cursor: pointer;
+            &:active{
+              background-color: rgb(252, 113, 113);
+            }
+          }
+        }
+      }
+    }
+  }
+  &__mid{
+    display: flex;
+    margin-bottom: 45px;
+    &__left{
+      width: 390px;
+      height: 240px;
+      background-color: white;
+      border: 3px solid black;
+      border-radius: 8px;
+      margin-right: 40px;
+      @include mq(){
+        margin-right: 20px;
+        height: 200px;
+      }
+    }
+    &__mid{
+      padding: 15px 0;
+      margin-right: 15px;
+      &__output-panel{
+        width: 120px;
+        height: 40px;
+        background-color: rgb(39, 39, 39);
+        border-radius: 5px;
+        text-align: right;
+        padding: 5px;
+        margin-bottom: 20px;
+        @include mq(){
+          width: 90px;
+          height: 30px;
+        }
+        &__moji{
+          color: rgb(255, 38, 0);
+          margin: 0;
+          @include mq(){
+            font-size: 12px;
+          }
+        }
+      }
+      &__bill{
+        width: 120px;
+        height: 80px;
+        padding: 5px;
+        background-color: rgb(39, 39, 39);
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+        @include mq(){
+          width: 90px;
+          height: 70px;
+        }
+        &__moji1{
+          margin: 0;
+          border: white solid 1px;
+          width: 40px;
+          height: 50px;
+          margin: auto;
+          font-weight: bold;
+          transform: rotate(270deg);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 26px;
+          @include mq(){
+            width: 30px;
+            height: 40px;
+            font-size: 21px;
+          }
+        }
+        &__moji2{
+          margin: 0;
+          border: white solid 1px;
+          width: 45px;
+          margin: auto;
+          font-size: 12px;
+          @include mq(){
+            width: 35px;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    &__right{
+      padding: 15px 0;
+      &__item{
+        width: 150px;
+        height: 90px;
+        padding: 5px;
+        background-color: rgb(39, 39, 39);
+        border-radius: 5px;
+        display: flex;
+        @include mq(){
+          width: 100px;
+          height: 80px;
+        }
+        &__lever{
+          width: 50px;
+          height: 50px;
+          margin-left: 10px;
+          margin-right: 35px;
+          background-color: rgb(83, 83, 83);
+          border-radius: 50%;
+          margin-top: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include mq(){
+            margin-left: 0;
+            margin-top: 20px;
+            margin-right: 10px;
+          }
+          &__maru{
+            width: 20px;
+            height: 20px;
+            background-color: rgb(54, 54, 54);
+            border-radius: 50%;
+          }
+          &__bou{
+            width: 30px;
+            height: 7px;
+            margin-left: -6px;
+            background-color: rgb(54, 54, 54);
+          }
+        }
+        &__coin{
+          width: 40px;
+          height: 40px;
+          background-color: rgb(83, 83, 83);
+          border-radius: 50%;
+          border: orangered solid 2px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &__border{
+            width: 35px;
+            height: 3px;
+            border-radius: 5px;
+            background-color: rgb(32, 32, 32);
+          }
+        }
+      }
+    }
+  }
+  &__bottom{
+    display: flex;
+    &__drink-exit{
+      width: 580px;
+      height: 110px;
+      background-color: rgb(32, 32, 32);
+      border-radius: 10px;
+      margin-right: 50px;
+      @include mq(){
+        margin-right: 30px;
+      }
+    }
+    &__coin-exit{
+      width: 80px;
+      height: 60px;
+      background-color: rgb(32, 32, 32);
+      border-radius: 5px;
+      &__moji{
+        color: white;
+        text-align: center;
+        font-size: 11px;
+        @include mq(){
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
+
+.modal{
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  &__bg{
+    background-color: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+  }
+  &__content{
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: 300px;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+  }
+}
+
+.modal-on{
+  display: block;
+}
